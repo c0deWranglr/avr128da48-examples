@@ -1,0 +1,20 @@
+
+#include "../include/config.h"
+
+void blink_timer_init(void) {
+	TCA1.SINGLE.CTRLB = TCA_SINGLE_CMP2EN_bm | TCA_SINGLE_WGMODE_SINGLESLOPE_gc;
+	TCA1.SINGLE.PER = 0xF000;
+	TCA1.SINGLE.CMP2 = 0x9000;
+	TCA1.SINGLE.CTRLA = TCA_SINGLE_CLKSEL_DIV16_gc;
+}
+
+void blink_timer(void) {
+	bool on = TCA1.SINGLE.CTRLA & TCA_SINGLE_ENABLE_bm;
+	if (on) {
+		PORTMUX.TCAROUTEA &= ~PORTMUX_TCA10_bm;
+		TCA1.SINGLE.CTRLA &= ~TCA_SINGLE_ENABLE_bm;
+	} else {
+		PORTMUX.TCAROUTEA |= PORTMUX_TCA10_bm;
+		TCA1.SINGLE.CTRLA |= TCA_SINGLE_ENABLE_bm;
+	}
+}
