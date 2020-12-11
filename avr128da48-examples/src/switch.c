@@ -33,6 +33,10 @@ bool is_on(void) {
 	return GPR.GPR0 & SWITCH_ON_bm;
 }
 
+bool is_pressed(void) {
+	return PORTC.IN & PIN7_bm;
+}
+
 bool is_change(void) {
 	return GPR.GPR0 & SWITCH_CHANGE_bm;
 }

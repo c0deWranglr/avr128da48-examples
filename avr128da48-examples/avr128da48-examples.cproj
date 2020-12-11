@@ -136,6 +136,9 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="flappy_bird.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="include\blink_manual.h">
       <SubType>compile</SubType>
     </Compile>

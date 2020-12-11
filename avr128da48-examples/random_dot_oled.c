@@ -1,3 +1,4 @@
+/*
 #include "include/config.h"
 #include "include/logging.h"
 #include "include/switch.h"
@@ -38,7 +39,7 @@ ISR(TCA0_OVF_vect)
 	TCA0.SINGLE.INTFLAGS = TCA_SINGLE_OVF_bm;
 }
 
-int main(void)
+int _main(void)
 {
 	logging_init();
 	switch_init();
@@ -63,3 +64,4 @@ int main(void)
 		sei();
 	}
 }
+*/
